@@ -1,4 +1,4 @@
-package Schema
+package JsonSchema
 
 import com.fasterxml.jackson.core.`type`.TypeReference
 import com.fasterxml.jackson.module.scala.JsonScalaEnumeration
@@ -9,8 +9,8 @@ import com.fasterxml.jackson.module.scala.JsonScalaEnumeration
 case class ApiDescription(actions: Array[Action])
 
 case class Action(actionUrl: String,
-                  returnType:NameDescriptor,
-                  parameters:Array[Parameter],
+                  returnType:String,
+                  parameters:Array[ParameterSchema],
                   @JsonScalaEnumeration(classOf[HttpRequestType])requestType:HttpRequest.HttpRequestType)
 
 object HttpRequest extends Enumeration {
